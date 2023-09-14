@@ -1,11 +1,9 @@
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class WordReversal {
 
-    public static String getPhrase(Scanner k) {
-        System.out.print("May I please have the phrase you would like backwards: ");
-        return k.nextLine();
+    public static String getPhrase() {
+        return JOptionPane.showInputDialog("May I please have the phrase you would like backwards");
     }
 
     public static String reversePhrase(String userPhrase) {
@@ -39,12 +37,11 @@ public class WordReversal {
     }
 
     public static void main(String[] args) {
-        Scanner k = new Scanner(System.in);
-        String userPhrase;
+        String userPhrase = "";
 
-        userPhrase = getPhrase(k);
-
-        System.out.println(reversePhrase(userPhrase));
-        k.close();
+        while (!userPhrase.equals("end")) {
+            userPhrase = getPhrase();
+            JOptionPane.showMessageDialog(null, reversePhrase(userPhrase));
+        }
     }
 }
